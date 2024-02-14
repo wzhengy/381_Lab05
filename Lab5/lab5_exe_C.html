@@ -2,8 +2,8 @@
 =========================================================
 Name        : lab5_exe_C.html
 Assignment  : Lab 5, Exercise C
-Author(s)   : saif youssef
-Submission  : Feb 14, 2024
+Author(s)   : Mahdi Ansari, William Arthur Philip Louis
+Submission  : May 21, 2030
 Description : DOM Elements.
 =========================================================
 -->
@@ -37,7 +37,7 @@ Description : DOM Elements.
 				flex-grow: 1; /* Allows the container to expand and fill the available space */
 			}
 			nav {
-				background-color: rgb(188, 55, 6);
+				background-color: coral;
 				padding: 1px 10px;
 			}
 			nav a {
@@ -57,7 +57,7 @@ Description : DOM Elements.
 				display: none;
 				position: absolute;
 				left: 0;
-				background-color: #fbbf9d; /* Background for dropdown */
+				background-color: #fbce9d; /* Background for dropdown */
 				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: for dropdown shadow */
 				z-index: 1000; /* Ensures dropdown is above other content */
 			}
@@ -85,7 +85,7 @@ Description : DOM Elements.
 	</head>
 	<body>
 		<header>
-			<h1>Welcome to saif's website<span class="companyName">&nbsp;</span> Website</h1>
+			<h1>Welcome to <span class="companyName">&nbsp;</span> Website</h1>
 		</header>
 		<nav>
 			<ul>
@@ -105,11 +105,11 @@ Description : DOM Elements.
 			<section>
 				<h2>About Us</h2>
 				<p>This is a paragraph about our company.</p>
-				<img src="Lab5/images/example.svg" alt="Company logo" width="100px" />
-                <p>“This is a new paragraph”</p>
+				<img src="./images/logo.svg" alt="Company logo" width="100px" />
+                
 				<h3>Our Journey</h3>
 				<p>
-					Welcome to our saif website<span class="companyName">&nbsp;</span>, a place where
+					Welcome to our <span class="companyName">&nbsp;</span>, a place where
 					innovation meets excellence. Our story began in the year 2010, in the
 					heart of Calgary, with a small team of passionate individuals
 					dedicated to making a difference in the software. Over the years,
@@ -118,7 +118,7 @@ Description : DOM Elements.
 				</p>
 				<h3>Our Mission</h3>
 				<p>
-					At our saif's company<span class="companyName">&nbsp;</span>, our mission is to
+					At our <span class="companyName">&nbsp;</span>, our mission is to
 					empower businesses and individuals through cutting-edge technology and
 					bespoke services. We believe in pushing boundaries, challenging the
 					status quo, and constantly innovating to stay ahead of the curve. Our
@@ -162,16 +162,16 @@ Description : DOM Elements.
 				<h2>Contact Us</h2>
 				<form>
 					<label for="name">Name:</label>
-					<input type="text" id="name" name="Name" /><br />
+					<input type="text" id="name" name="name" /><br />
 					<label for="email">Email:</label>
-					<input type="email" id="email" name="Email" /><br />
+					<input type="email" id="email" name="email" /><br />
 					<label for="message">Message:</label>
-					<textarea id="message" name="Message"></textarea><br />
+					<textarea id="message" name="message"></textarea><br />
 					<input type="button" value="Submit" />
 				</form>
 			</section>
 			<article>
-				<!-- <h2>What is full-stack?</h2> -->
+				<h2>What is full-stack?</h2>
 				<p>
 					Full-stack development stands at the cutting edge of modern web and
 					software development, embodying a comprehensive approach to building
@@ -206,33 +206,61 @@ Description : DOM Elements.
 		<script>
 			document.addEventListener('DOMContentLoaded', function afterRender() {
 				// Task 1: Set the text content of all elements with the class 'companyName' and remove their border
+				let companyNameElements = document.querySelectorAll('.companyName');companyNameElements.forEach(el => {
+    el.textContent = 'saif Company ';
+    el.style.border = 'none';
+});
 
 
 				// Task 2: Change the background color of the navigation bar
-				
+				document.querySelector('nav').style.backgroundColor = '#FF5733'; 
+
 
 				// Task 3: Hide the section titled 'What is full-stack?'
+				document.querySelector('article').style.display = 'none';
 
 
 				// Task 4: Create a new <p> element and append it to the 'About Us' section
+					let newParagraph = document.createElement('p');
+					newParagraph.textContent = 'This is a new paragraph';
+					newParagraph.style.color = 'blue'; // Setting the text color to red
+					document.querySelector('section').appendChild(newParagraph);
 
 
 				// Task 5: Add placeholders to input elements based on their corresponding label IDs
+				document.querySelector('#name').placeholder = 'Name';
+				document.querySelector('#email').placeholder = 'Email';
+				document.querySelector('#message').placeholder = 'Message';
 
 
 				// Task 6: Set the src attribute of the image
+				document.querySelector('img').src = 'images/example.svg'; // Replace with the correct path
 
 
 				// Task 7: Add a new item in the navigation menu
+				let newNavItem = document.createElement('li');
+				newNavItem.innerHTML = '<a href="#">New Item</a>';
+				document.querySelector('nav ul').appendChild(newNavItem);
 
 
 				// Task 8: Change the submit button text upon clicking and make it disabled
+				let submitButton = document.querySelector('input[type="button"]');
+				submitButton.addEventListener('click', function() {
+    			this.value = 'Submitted';
+    			this.disabled = true;
+				});
 
 
 				// Task 9: Change the text color of each item in the 'Related Links' to green
+				let relatedLinks = document.querySelectorAll('aside ul li a');
+				relatedLinks.forEach(link => {
+  					  link.style.color = 'red'; // Or any other color
+				});
 
 
 				// Task 10: Add a red solid border to the footer
+				document.querySelector('footer').style.border = '1px solid red';
+
 			});
 		</script>
 	</body>
