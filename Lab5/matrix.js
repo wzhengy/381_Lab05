@@ -143,7 +143,7 @@ function addMatrices(matrix1, matrix2){
         for (let j = 0; j < matrix1[0].length; j++)
             addedMatrices[i][j] = matrix1[i][j] + matrix2[i][j]
     }
-    console.log(addedMatrices);
+    console.log("Resulting matrix", addedMatrices);
     return addedMatrices;
 };
 
@@ -160,7 +160,7 @@ const subtractMatrices = function (matrix1, matrix2) {
         for (let j = 0; j < matrix1[0].length; j++)
         subtractedMatrices[i][j] = matrix1[i][j] - matrix2[i][j]
     }
-    console.log(subtractedMatrices);
+    console.log("Resulting matrix", subtractedMatrices);
     return subtractedMatrices;
 };
 
@@ -181,5 +181,6 @@ const multiplyMatrices = (matrix1, matrix2) => {
             }
         }
     }
+    console.log("Resulting matrix", multipliedMatrices);
     return multipliedMatrices;
 };
